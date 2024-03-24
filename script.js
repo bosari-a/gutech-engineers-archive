@@ -39,7 +39,12 @@ for (let j = 0; j < ps.length; j++) {
     imgf.pop();
     imgf = imgf.join(".") + ".png";
     const imgpath = path.join(p, imgf);
-    const obj = new Doc(f, f, new_fp, imgpath);
+    const obj = new Doc(
+      f,
+      f,
+      `/web/viewer.html?file=https://github.com/bosari-a/gutech-engineers-archive/raw/main/${new_fp}`,
+      imgpath
+    );
     arr.push(obj);
   }
   const subject = {
