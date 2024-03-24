@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Engineering Archive</title>
+  </head>
+  <style>
+    body,
+    html {
+      padding: 0;
+      margin: 0;
+      background-color: rgb(235, 235, 252, 0.4);
+      font-family: monospace, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    * {
+      word-break: break-all;
+      word-wrap: break-word;
+    }
+    .banner {
+      padding: 20px;
+      background-color: rgb(76, 76, 231);
+      color: #eee;
+    }
+    main {
+      padding: 20px;
+    }
+    .available-subjects {
+      padding: 5px;
+      padding-bottom: 30px;
+    }
+
+    @media screen and (min-width: 768px) {
+      .available-subjects div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5px;
+      }
+    }
+    .subjects {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .subject {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    .subject-name {
+      text-align: center;
+      font-size: x-large;
+      text-transform: capitalize;
+      background-color: rgb(200, 200, 250);
+      border-radius: 10px;
+      width: 100%;
+    }
+    .docs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    a,
+    .desc {
+      max-width: 300px;
+    }
+    .doc {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      padding: 20px;
+      border: 2px solid rgb(200, 200, 250);
+    }
+    .doc img {
+      height: 128px;
+      object-fit: scale-down;
+    }
+    footer {
+      font-size: large;
+      width: 100%;
+      text-align: center;
+      padding: 40px 0;
+      background-color: rgb(200, 200, 250);
+    }
+  </style>
+  <body>
+    <div class="banner">
+      <h3 class="title">Engineering Archive</h3>
+    </div>
+    <main>
+      <h4>List of available subjects:</h4>
+      <div class="available-subjects">
+            <%- include("partials/list.ejs", {list: list}) %>
+      </div>
+      <div class="subjects">
+        <% for( let i = 0; i < subjects.length; i++ ) { %>
+            <%- include("partials/subject.ejs", {subject:subjects[i]}) %>
+        <% } %>
+      </div>
+    </main>
+    <footer>Good Luck!!!</footer>
+  </body>
+  <script type="module">
+    import pdfjsDist from "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.379/+esm";
+  </script>
+  <script src="ejs.js"></script>
+  <script src="index.js" type="module"></script>
+</html>
