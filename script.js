@@ -23,7 +23,7 @@ class Doc {
 for (let j = 0; j < ps.length; j++) {
   const p = ps[j];
   const arr = [];
-  const d = fs.readdirSync(path.join("./static", p));
+  const d = fs.readdirSync(path.join("static", p));
   for (let i = 0; i < d.length; i++) {
     const f = d[i];
     if (f.includes("png") || !f.includes(".")) {
@@ -38,8 +38,13 @@ for (let j = 0; j < ps.length; j++) {
     let imgf = f.split(".");
     imgf.pop();
     imgf = imgf.join(".") + ".png";
-    const imgpath = path.join(p, imgf);
-    const obj = new Doc(f, f, new_fp, imgpath);
+    const imgpath = path.join("./static", p, imgf);
+    const obj = new Doc(
+      f,
+      f,
+      `https://github.com/bosari-a/gutech-engineers-archive/raw/main/static/${p}/${f}`,
+      imgpath
+    );
     arr.push(obj);
   }
   const subject = {
