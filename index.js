@@ -24,7 +24,6 @@ const el = {
   list: document.querySelector(".available-subjects"),
 };
 const jsonfilespaths = [
-  "./static/chemistry-2/chemistry-2.json",
   "./static/control_and_automation/control_and_automation.json",
   "./static/electrical_engineering/electrical_engineering.json",
   "./static/environment-eng/environment-eng.json",
